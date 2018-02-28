@@ -4,5 +4,5 @@
 - Chinese Language
 - Object-Oriented Programming
 - Database Principles and Design
-- Experiment of Operating Systems
+- [Experiment of Operating Systems](os)
 - Experiment of Computer Networks
