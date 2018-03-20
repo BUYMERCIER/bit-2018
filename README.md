@@ -6,3 +6,4 @@
 - Database Principles and Design
 - [Experiment of Operating Systems](os)
 - Experiment of Computer Networks
+- [Compiler Principles and Design](compiler)
