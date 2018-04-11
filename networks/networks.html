@@ -1028,4 +1028,31 @@ x = 40 * 10-3
 
 <p>Minimum frame size / Bit rate = 40 * 10-3<br />
 Therefore, Minimum frame size = 40 * 10-3 * 4 * 103 = <strong>160 bits</strong></p>
-<h4 id="30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec"><a name="user-content-30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec" href="#30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>30. Consider an error-free 64-kbps satellite channel used to send 512-byte data frames in one direction, with very short acknowledgements coming back the other way. What is the maximum throughput for window sizes of 1, 7, 15, and 127? The earth-satellite propagation time is 270 msec.</h4></article></body></html>
+<h4 id="30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec"><a name="user-content-30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec" href="#30-consider-an-error-free-64-kbps-satellite-channel-used-to-send-512-byte-data-frames-in-one-direction-with-very-short-acknowledgements-coming-back-the-other-way-what-is-the-maximum-throughput-for-window-sizes-of-1-7-15-and-127-the-earth-satellite-propagation-time-is-270-msec" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>30. Consider an error-free 64-kbps satellite channel used to send 512-byte data frames in one direction, with very short acknowledgements coming back the other way. What is the maximum throughput for window sizes of 1, 7, 15, and 127? The earth-satellite propagation time is 270 msec.</h4>
+<p>Transmission time for 1 frame=512 B/(64/8)KBps = 64 ms</p>
+<p>Propagation time = 270<br />
+Roundtrip time = 2x270= 540ms<br />
+Transmission time+ RTT =604 ms</p>
+<ul>
+<li>
+<p>Window size =1<br />
+means in 604 ms, only 1 frame is sent<br />
+Throughput= 512 B/604 msec = 678 bps</p>
+</li>
+<li>
+<p>Window size =7<br />
+means in 604 ms, 7 frames are sent<br />
+Throughput= 7x512 B/604 msec = 7x678 bps = 4746 bps</p>
+</li>
+<li>
+<p>We know maximum throughput is possible when Window size = [1+ 2Tpropagation /T transmision]<br />
+= 1+2 *270/64 =9.43 ~ 10<br />
+So Window size =15 will give throughput as maximum bandwidth available ie 64 Kbps</p>
+</li>
+<li>
+<p>Window size =127<br />
+But maximum throughput is achieved when window size =10 onwards.<br />
+Hence Window size =127 also will give throughput as maximum bandwidth available ie 64 Kbps.<br />
+Therefore, Window size 15 and 127 have same throughput</p>
+</li>
+</ul></article></body></html>
