@@ -1,0 +1,2 @@
+One of the goals of inline is to change linkage behavior.
+If the function has external linkage, it causes a collision during linking (it violates uniqueness of external symbols). They thus default to internal linkage.
