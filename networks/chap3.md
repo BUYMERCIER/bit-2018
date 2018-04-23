@@ -10,7 +10,8 @@ Bit rate = 4 kbps
 One-way propagation delay = 20 ms  
 
 ```
-Efficiency = Transmission time of packet/(Transmission time of packet + 2 * Propagation delay)
+Efficiency = Transmission time of packet/(Transmission time of packet 
+	+ 2 * Propagation delay)
 0.5 = x/(x + 2 * 20 * 10-3)
 x = 20 * 10-3
 x = 40 * 10-3
