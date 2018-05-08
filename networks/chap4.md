@@ -6,7 +6,16 @@ Corentin MERCIER - 1820186336
 
 ### 15. A 1-km-long, 10-Mbps CSMA/CD LAN (not 802.3) has a propagation speed of 200 m/µsec. Repeaters are not allowed in this system. Data frames are 256 bits long, including 32 bits of header, checksum, and other overhead. The first bit slot after a successful transmission is reserved for the receiver to capture the channel in order to send a 32-bit acknowledgement frame. What is the effective data rate, excluding overhead, assuming that there are no collisions?
 
+Data frames are 224 bits long without the header.  
+First off, let's compute T, the time to process 224 bits of data through the network and send back the acknowledgement frame:
 
+```
+T = (time for 1b to travel) * 2 + (256 + 32) / (bit rate)
+T = (5 * 2) + (288/10⁷) * 10⁶
+T = 38.8 µs
+
+data rate = 224/38.8 = 5.77 b/µs⁻¹
+```
 
 ### 16. Consider building a CSMA/CD network running at 1 Gbps over a 1-km cable with no repeaters. The signal speed in the cable is 200,000 km/sec. What is the minimum frame size?
 
