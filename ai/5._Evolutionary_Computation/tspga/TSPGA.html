@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Visualisation of Genetic Algorithms for the Traveling Salesman Problem in Java</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1 align="center"><font size="6"><strong>Visualisation of
+Genetic Algorithms for the Traveling Salesman Problem</strong></font><font
+size="7"><strong> </strong></font><font size="6"><strong>in Java</strong></font></h1>
+
+<h3 align="center"><font size="5"><strong>by Johannes Sarg</strong></font></h3>
+
+<p>This thesis of diploma has been implemented in Java 1.1 in
+March 1998.</p>
+
+<hr>
+
+<h2>The Traveling Salesman Problem (TSP)</h2>
+
+<p>Find the shortest trip through <em>n</em> towns where each
+town must be visited exactly once.</p>
+
+<p align="center"><img src="trip.gif" width="441" height="196"></p>
+
+<p align="left">In the following we define that from each town
+all other towns can be visited. The costs to visit a town from
+another are represented by their euklidic distance. Therefore the
+costs are reflexive.</p>
+
+<hr>
+
+<h2>The Genetic Algorithm (GA)</h2>
+
+<p>A GA tries to use basic principles of natural evolution. It is
+especially appropriate for problems with large and complex
+search-spaces, where the global optimum can't be found within a
+reasonable amount of time using traditional techniques as e.g.
+total enumeration or branch and bound. It cannot be guaranteed
+that the optimum solution is found by the GA. Here are some <a
+href="#References">references for GAs</a>.</p>
+
+<h3>Structure of a GA:</h3>
+
+<dl>
+    <dd><strong>procedure</strong> GA</dd>
+    <dd><strong>begin</strong><dl>
+            <dd>t = 0;</dd>
+            <dd>initialize(P(t));</dd>
+            <dd>evaluate(P(t));</dd>
+            <dd><strong>while</strong> (<strong>not</strong>
+                termination condition)</dd>
+            <dd><strong>begin</strong><dl>
+                    <dd>t = t + 1;</dd>
+                    <dd>Q<sub>s</sub>(t) = selection(P(t-1));</dd>
+                    <dd>Q<sub>r</sub>(t) = recombination(Q<sub>s</sub>(t));</dd>
+                    <dd>P(t) = mutation(Q<sub>r</sub>(t));</dd>
+                    <dd>evaluate(P(t));</dd>
+                    <dt><strong>end</strong>;</dt>
+                </dl>
+            </dd>
+        </dl>
+        <p><strong>end</strong>;</p>
+    </dd>
+</dl>
+
+<h3>Description:</h3>
+
+<p>A set of potential solutions are randomly initialized and
+their quality evaluated. Out of this set better solutions are
+preferred, corresponding to a probability distribution. Each
+time, two of the selected solutions creats new solutions by
+recombination which finally are mutated. These generated
+solutions are evaluated and represents the basis for the next
+generation. In this way a GA tries to find better solutions and
+to reach the global optimum.</p>
+
+<hr>
+
+<h2>Objectives of the program TSPGA</h2>
+
+<ul type="disc">
+    <li>exact simulation and visualisation of a GA run</li>
+    <li>visualisation of the mutation and recombination methods</li>
+    <li>possibility to compare different GA runs concerning the
+        same TSP</li>
+</ul>
+
+<hr>
+
+<h2>The GA for TSPs</h2>
+
+<p>In the &quot;Options&quot; menu, you can configure the
+following properties for the GA:</p>
+
+<p><strong>GA parameters: </strong></p>
+
+<ul type="disc">
+    <li>recombination methode: <ul>
+            <li>Partially Matched Crossover (PMX) </li>
+            <li>Order Crossover (OX)</li>
+            <li>Cycle Crossover (CX)</li>
+            <li>Uniform Order Based Crossover (UOBX)</li>
+            <li>Edge Recombination Crossover (ERX)</li>
+            <li>ERX with heuristic (Grefenstette)</li>
+            <li>None</li>
+        </ul>
+    </li>
+    <li>recombination probability (0% - 100%)</li>
+    <li>mutation methode:<ul>
+            <li>Inversion</li>
+            <li>Insertion</li>
+            <li>Displacement</li>
+            <li>Reciprocal Exchange (Swap)</li>
+            <li>None</li>
+        </ul>
+    </li>
+    <li>mutation probability (0% - 100%)</li>
+    <li>population size (5 - 100)</li>
+    <li>k value for the Tournament selection (1 - 10)</li>
+    <li>elitism (true / false)</li>
+</ul>
+
+<p><strong>Set Problem:</strong> A grid can be defined where the
+user can set the positions of the towns (4 - 100 towns).</p>
+
+<hr>
+
+<p>Now its time to start the TSPGA. The applet should run on a
+www-browser supporting Java 1.1.</p>
+
+<p>Click here: <applet code="TSPGA.class" align="baseline"
+width="55" height="24"></applet></p>
+
+<hr>
+
+<h2>Links</h2>
+
+<p>Download the zipped thesis of diploma which includes the user
+documentation for this program (in German): <a
+href="ftp://tspgadoc.zip">ftp://tspgadoc.zip</a></p>
+
+<p>Download the zipped class files and this html-page of TSPGA: <a
+href="ftp://tspga.zip" target="hallo">ftp://tspga.zip</a> </p>
+
+<p>This program is used in the lecture &quot;Evolutionäre
+Algorithmen&quot; by <a
+href="mailto:%20raidl@eiunix.tuwien.ac.at">Univ. Ass. Dipl.-Ing
+Dr. Günther Raidl</a> of the <a
+href="http://eiunix.tuwien.ac.at">Institute for Computergraphics</a>
+on the Vienna University of Technology.</p>
+
+<hr>
+
+<h2><a name="References">References</a></h2>
+
+<ul>
+    <li>this thesis of diploma</li>
+    <li>Z. Michalewicz: <em>Genetic Algorithms + Data Structures
+        = Evolution Programs</em>, Springer, New York, 1992</li>
+    <li>D. E. Goldberg: <em>Genetic Algorithms in Search,
+        Optimization and Machine Learning</em>, Addison-Wesley,
+        MA, 1989</li>
+</ul>
+
+<hr>
+
+<p>Page maintained by <a
+href="mailto:e9019893@stud1.tuwien.ac.at">Johannes Sarg, March
+1998</a></p>
+
+<p>&nbsp;</p>
+</body>
+</html>
