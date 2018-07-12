@@ -1,0 +1,2 @@
+When the keyword "static" is removed, the variable i is initialized at 0 every 
+time the function "func" is called.
